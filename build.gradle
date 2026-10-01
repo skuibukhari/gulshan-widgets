@@ -1,0 +1,5 @@
+// Top-level build file for Gulshan Factory Widgets.
+// The Android Gradle Plugin version is declared here; the app module applies it.
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
+}

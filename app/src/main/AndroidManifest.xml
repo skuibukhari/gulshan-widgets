@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
+
+        <!-- Launcher entry: opens the Gulshan Factory PWA in the browser, then closes. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 1. Admin Daily Orders widget -->
+        <receiver
+            android:name=".AdminDailyWidget"
+            android:exported="false"
+            android:label="@string/widget_admin_daily">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_admin_daily_info" />
+        </receiver>
+
+        <!-- 2. Admin Vehicle / Supply widget -->
+        <receiver
+            android:name=".AdminSupplyWidget"
+            android:exported="false"
+            android:label="@string/widget_admin_supply">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_admin_supply_info" />
+        </receiver>
+
+        <!-- 3. Department: item-wise widget -->
+        <receiver
+            android:name=".DeptItemsWidget"
+            android:exported="false"
+            android:label="@string/widget_dept_items">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_dept_items_info" />
+        </receiver>
+
+        <!-- 4. Department: shop-wise widget -->
+        <receiver
+            android:name=".DeptShopsWidget"
+            android:exported="false"
+            android:label="@string/widget_dept_shops">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_dept_shops_info" />
+        </receiver>
+
+        <!-- 5. Shop order reminder widget (countdown + warning) -->
+        <receiver
+            android:name=".ShopReminderWidget"
+            android:exported="false"
+            android:label="@string/widget_shop_reminder">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_shop_reminder_info" />
+        </receiver>
+
+        <!-- 6. Individual vehicle (driver) widget -->
+        <receiver
+            android:name=".VehicleWidget"
+            android:exported="false"
+            android:label="@string/widget_vehicle">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_vehicle_info" />
+        </receiver>
+
+        <!-- 7. Supplier widget -->
+        <receiver
+            android:name=".SupplierWidget"
+            android:exported="false"
+            android:label="@string/widget_supplier">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_supplier_info" />
+        </receiver>
+
+    </application>
+</manifest>

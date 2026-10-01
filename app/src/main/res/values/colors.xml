@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gulshan_orange">#E8721C</color>
+    <color name="gulshan_dark">#1A1A1A</color>
+    <color name="gulshan_green">#2E7D32</color>
+    <color name="warn_red">#FF5252</color>
+    <color name="white">#FFFFFF</color>
+</resources>

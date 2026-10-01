@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gulshan Widgets</string>
+    <string name="widget_admin_daily">Admin: روزانہ آرڈر</string>
+    <string name="widget_admin_supply">Admin: سپلائی / گاڑی</string>
+    <string name="widget_dept_items">محکمہ: آئٹم وائز</string>
+    <string name="widget_dept_shops">محکمہ: دکان وائز</string>
+    <string name="widget_shop_reminder">دکان: آرڈر یاددہانی</string>
+    <string name="widget_vehicle">گاڑی والا: ڈیوٹی</string>
+    <string name="widget_supplier">سپلائر: دکانیں</string>
+
+    <string name="desc_widget_admin_daily">Admin daily-orders reminder: production date and cut-off countdown.</string>
+    <string name="desc_widget_admin_supply">Admin supply/vehicle reminder: opens the supply calendar.</string>
+    <string name="desc_widget_dept_items">Department item-wise reminder for Bread/Dry/Namkeen/Fresh.</string>
+    <string name="desc_widget_dept_shops">Department shop-wise reminder for Bread/Dry/Namkeen/Fresh.</string>
+    <string name="desc_widget_shop_reminder">Shop order reminder with cut-off countdown and last-60-minutes warning.</string>
+    <string name="desc_widget_vehicle">Driver duty reminder (Arif / Rauf).</string>
+    <string name="desc_widget_supplier">Supplier reminder for assigned shops.</string>
+</resources>
