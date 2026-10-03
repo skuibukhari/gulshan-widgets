@@ -37,6 +37,14 @@ public class DeptShopsWidget extends AppWidgetProvider {
         v.setOnClickPendingIntent(R.id.widget_root, WidgetHelper.openUrl(context, WidgetHelper.URL_DAILY, 14));
 
         if (!WidgetPrefs.hasLogin(context, widgetId)) {
+            // Tap opens login screen to fix missing login
+            android.content.Intent cfg = new android.content.Intent(context, WidgetConfigActivity.class);
+            cfg.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
+            cfg.putExtra("relogin", true);
+            cfg.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+            android.app.PendingIntent pi = android.app.PendingIntent.getActivity(context, widgetId,
+                    cfg, android.app.PendingIntent.FLAG_UPDATE_CURRENT | android.app.PendingIntent.FLAG_IMMUTABLE);
+            v.setOnClickPendingIntent(R.id.widget_root, pi);
             v.setTextViewText(R.id.big_count, "--/--");
             v.setTextViewText(R.id.subtitle, "دکانوں کا آرڈر موصول");
             v.setProgressBar(R.id.progress, 100, 0, false);

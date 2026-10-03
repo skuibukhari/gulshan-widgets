@@ -61,12 +61,24 @@ public class WidgetConfigActivity extends Activity {
             runOnUiThread(() -> {
                 if (ok) {
                     WidgetPrefs.saveLogin(this, widgetId, u, p);
-                    // Don't touch widgets here — the system will call onUpdate
-                    // after we return RESULT_OK, which fetches live data safely.
-                    Intent result = new Intent();
-                    result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
-                    setResult(RESULT_OK, result);
-                    finish();
+                    // If launched from widget tap (re-login), manually trigger update.
+                    // If launched from add-widget flow, system calls onUpdate after RESULT_OK.
+                    boolean isReLogin = getIntent().getBooleanExtra("relogin", false);
+                    if (isReLogin) {
+                        try {
+                            AppWidgetManager mgr = AppWidgetManager.getInstance(this);
+                            // Update both dept widgets for this ID (only the matching one will apply)
+                            int[] ids = new int[]{widgetId};
+                            new DeptShopsWidget().onUpdate(this, mgr, ids);
+                            new DeptItemsWidget().onUpdate(this, mgr, ids);
+                        } catch (Exception e) { e.printStackTrace(); }
+                        finish();
+                    } else {
+                        Intent result = new Intent();
+                        result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
+                        setResult(RESULT_OK, result);
+                        finish();
+                    }
                 } else {
                     tvError.setText("لاگ اِن ناکام — یوزر نیم/پاس ورڈ چیک کریں");
                     tvError.setVisibility(View.VISIBLE);
