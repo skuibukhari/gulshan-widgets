@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Premium Department Shops widget -->
+<!-- Luxury Department Shops widget (Design B): live shop status -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widget_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="16dp"
-    android:background="@drawable/widget_bg_dept">
+    android:background="@drawable/widget_bg_dept_luxury">
+
+    <!-- Golden accent line -->
+    <View
+        android:layout_width="60dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/widget_accent_gold" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="🏪 ڈیپارٹمنٹ دکانیں"
+        android:layout_gravity="center_horizontal"
+        android:text="🏪 ڈیپارٹمنٹ — دکانیں"
         android:textColor="#FFFFFF"
         android:textSize="17sp"
         android:textStyle="bold" />
@@ -22,37 +30,123 @@
         android:id="@+id/big_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="0/0"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="2dp"
+        android:text="--/--"
+        android:textColor="#FFD54F"
+        android:textSize="44sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="دکانوں کا آرڈر موصول"
-        android:textColor="#BBDEFB"
+        android:textColor="#B39DDB"
         android:textSize="13sp" />
-
-    <TextView
-        android:id="@+id/countdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="⏳ --"
-        android:textColor="#90CAF9"
-        android:textSize="14sp"
-        android:textStyle="bold" />
 
     <ProgressBar
         android:id="@+id/progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:max="100"
         android:progress="0"
-        android:progressDrawable="@drawable/widget_progress_bg" />
+        android:progressDrawable="@drawable/widget_progress_gold" />
+
+    <TextView
+        android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:text="⏳ --"
+        android:textColor="#CE93D8"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <!-- Live shop rows (glass cards) -->
+    <LinearLayout
+        android:id="@+id/shop1_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@drawable/widget_card_glass"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/shop1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shop2_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@drawable/widget_card_glass"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/shop2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shop3_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@drawable/widget_card_glass"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/shop3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/more_shops"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:text=""
+        android:textColor="#B39DDB"
+        android:textSize="11sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/login_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="لاگ اِن کریں — ویجٹ دبائیں"
+        android:textColor="#90CAF9"
+        android:textSize="12sp"
+        android:visibility="gone" />
 </LinearLayout>
