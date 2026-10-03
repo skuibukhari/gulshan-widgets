@@ -61,10 +61,8 @@ public class WidgetConfigActivity extends Activity {
             runOnUiThread(() -> {
                 if (ok) {
                     WidgetPrefs.saveLogin(this, widgetId, u, p);
-                    // Trigger an immediate update
-                    AppWidgetManager mgr = AppWidgetManager.getInstance(this);
-                    DeptShopsWidget.updateOne(this, mgr, widgetId);
-                    DeptItemsWidget.updateOne(this, mgr, widgetId);
+                    // Don't touch widgets here — the system will call onUpdate
+                    // after we return RESULT_OK, which fetches live data safely.
                     Intent result = new Intent();
                     result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
                     setResult(RESULT_OK, result);
