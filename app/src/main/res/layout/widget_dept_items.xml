@@ -8,12 +8,13 @@
     android:padding="16dp"
     android:background="@drawable/widget_bg_dept_luxury">
 
-    <!-- Golden accent line -->
-    <View
+    <!-- Golden accent line (TextView for RemoteViews safety) -->
+    <TextView
         android:layout_width="60dp"
         android:layout_height="4dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
+        android:text=""
         android:background="@drawable/widget_accent_gold" />
 
     <TextView

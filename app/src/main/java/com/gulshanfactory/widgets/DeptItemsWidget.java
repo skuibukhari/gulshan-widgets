@@ -27,6 +27,12 @@ public class DeptItemsWidget extends AppWidgetProvider {
     }
 
     static void updateOne(Context context, AppWidgetManager mgr, int widgetId) {
+        try {
+        updateOneSafe(context, mgr, widgetId);
+        } catch (Exception e) { e.printStackTrace(); }
+    }
+
+    static void updateOneSafe(Context context, AppWidgetManager mgr, int widgetId) {
         RemoteViews v = new RemoteViews(context.getPackageName(), R.layout.widget_dept_items);
         v.setTextViewText(R.id.title, "🏭 ڈیپارٹمنٹ — آئٹم");
         v.setTextViewText(R.id.countdown, "⏳ " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
