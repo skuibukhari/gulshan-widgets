@@ -53,21 +53,28 @@ public class ShopReminderWidget extends AppWidgetProvider {
         boolean warn = diff > 0 && diff <= warnMs;
 
         if (warn) {
-            // WARNING: only inside the admin-configured final period.
-            v.setTextViewText(R.id.title, "⚠️ آخری " + WidgetHelper.WARNING_MINUTES + " منٹ!");
-            v.setTextViewText(R.id.countdown, "⏰ " + WidgetHelper.formatCountdown(diff));
-            v.setInt(R.id.countdown, "setTextColor", COLOR_WARN);
+            // WARNING: only inside the admin-configured final period - RED background.
+            v.setInt(R.id.widget_root, "setBackgroundResource", R.drawable.widget_bg_shop_warn);
+            v.setTextViewText(R.id.title, "🏪 میری دکان");
+            v.setViewVisibility(R.id.warn_banner, android.view.View.VISIBLE);
+            v.setTextViewText(R.id.warn_banner, "⚠️ آخری " + WidgetHelper.WARNING_MINUTES + " منٹ!");
+            v.setTextViewText(R.id.countdown, WidgetHelper.formatCountdown(diff));
             v.setTextViewText(R.id.subtitle, "ابھی آرڈر دیں!");
+            v.setTextViewText(R.id.order_status, "");
         } else if (diff <= 0) {
-            v.setTextViewText(R.id.title, "🔒 کٹ آف گزر چکا");
+            v.setInt(R.id.widget_root, "setBackgroundResource", R.drawable.widget_bg_shop);
+            v.setTextViewText(R.id.title, "🏪 میری دکان");
+            v.setViewVisibility(R.id.warn_banner, android.view.View.GONE);
             v.setTextViewText(R.id.countdown, WidgetHelper.formatCountdown(diff));
-            v.setInt(R.id.countdown, "setTextColor", COLOR_NORMAL);
             v.setTextViewText(R.id.subtitle, "پیداوار: " + WidgetHelper.productionDate());
+            v.setTextViewText(R.id.order_status, "");
         } else {
-            v.setTextViewText(R.id.title, "🕰️ آرڈر کٹ آف");
-            v.setTextViewText(R.id.countdown, WidgetHelper.formatCountdown(diff));
-            v.setInt(R.id.countdown, "setTextColor", COLOR_NORMAL);
-            v.setTextViewText(R.id.subtitle, "پیداوار: " + WidgetHelper.productionDate());
+            v.setInt(R.id.widget_root, "setBackgroundResource", R.drawable.widget_bg_shop);
+            v.setTextViewText(R.id.title, "🏪 میری دکان");
+            v.setViewVisibility(R.id.warn_banner, android.view.View.GONE);
+            v.setTextViewText(R.id.countdown, "⏳ " + WidgetHelper.formatCountdown(diff));
+            v.setTextViewText(R.id.subtitle, "آرڈر کا وقت باقی");
+            v.setTextViewText(R.id.order_status, "پیداوار: " + WidgetHelper.productionDate());
         }
 
         v.setOnClickPendingIntent(R.id.widget_root,

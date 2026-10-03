@@ -1,38 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- RemoteViews-safe layout: LinearLayout + TextView only. -->
+<!-- Premium Vehicle widget: driver shops delivered/pending -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widget_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="12dp"
-    android:background="@drawable/widget_bg">
+    android:padding="16dp"
+    android:background="@drawable/widget_bg_vehicle">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="گلشن فیکٹری"
+        android:text="🚚 میری ڈیوٹی"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/delivered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✅ 0"
+            android:textColor="#A7FFEB"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/pending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⏳ 0"
+            android:textColor="#FFE0B2"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/line2"
+        android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text=""
+        android:text="دکانیں"
         android:textColor="#FFFFFF"
-        android:textSize="14sp" />
+        android:textSize="13sp" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="10dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/widget_progress_bg" />
 
     <TextView
-        android:id="@+id/line3"
+        android:id="@+id/countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text=""
-        android:textColor="#FFE0B2"
-        android:textSize="12sp" />
+        android:layout_marginTop="8dp"
+        android:text="⏳ --"
+        android:textColor="#B2DFDB"
+        android:textSize="13sp" />
 </LinearLayout>

@@ -1,38 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- RemoteViews-safe layout: LinearLayout + TextView only. -->
+<!-- Premium Admin Daily Orders widget: big count, countdown, progress bar -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widget_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="12dp"
-    android:background="@drawable/widget_bg">
+    android:padding="16dp"
+    android:background="@drawable/widget_bg_admin_daily">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="گلشن فیکٹری"
+        android:text="📊 روزانہ آرڈر"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/line2"
+        android:id="@+id/big_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="0/0"
+        android:textColor="#FFFFFF"
+        android:textSize="44sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="دکانوں کا آرڈر آ گیا"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="⏳ --"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="10dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/widget_progress_bg" />
+
+    <TextView
+        android:id="@+id/footer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text=""
-        android:textColor="#FFFFFF"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/line3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text=""
-        android:textColor="#FFE0B2"
-        android:textSize="12sp" />
+        android:textColor="#E8F5E9"
+        android:textSize="11sp" />
 </LinearLayout>

@@ -24,9 +24,11 @@ public class DeptShopsWidget extends AppWidgetProvider {
 
     static void updateOne(Context context, AppWidgetManager mgr, int widgetId) {
         RemoteViews v = new RemoteViews(context.getPackageName(), R.layout.widget_dept_shops);
-        v.setTextViewText(R.id.title, "🏪 دکان وائز");
-        v.setTextViewText(R.id.line2, "پیداوار: " + WidgetHelper.productionDate());
-        v.setTextViewText(R.id.line3, "کٹ آف تک: " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
+        v.setTextViewText(R.id.title, "🏪 ڈیپارٹمنٹ دکانیں");
+        v.setTextViewText(R.id.big_count, "0/0");
+        v.setTextViewText(R.id.subtitle, "دکانوں کا آرڈر موصول");
+        v.setTextViewText(R.id.countdown, "⏳ " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
+        v.setProgressBar(R.id.progress, 100, 0, false);
         v.setOnClickPendingIntent(R.id.widget_root, WidgetHelper.openUrl(context, WidgetHelper.URL_DAILY, 14));
         mgr.updateAppWidget(widgetId, v);
     }

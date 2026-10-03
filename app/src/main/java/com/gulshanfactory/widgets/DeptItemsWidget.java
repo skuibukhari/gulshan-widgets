@@ -24,9 +24,16 @@ public class DeptItemsWidget extends AppWidgetProvider {
 
     static void updateOne(Context context, AppWidgetManager mgr, int widgetId) {
         RemoteViews v = new RemoteViews(context.getPackageName(), R.layout.widget_dept_items);
-        v.setTextViewText(R.id.title, "🗂 آئٹم وائز");
-        v.setTextViewText(R.id.line2, "پیداوار: " + WidgetHelper.productionDate());
-        v.setTextViewText(R.id.line3, "محکمہ: بریڈ / ڈرائی / نمکین / فریش");
+        v.setTextViewText(R.id.title, "🏭 ڈیپارٹمنٹ");
+        v.setTextViewText(R.id.item_count, "آئٹم: --");
+        v.setTextViewText(R.id.shop_count, "پینڈنگ: --");
+        v.setTextViewText(R.id.countdown, "⏳ " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
+        // Items list: populated from live data when available; tap opens the app
+        v.setViewVisibility(R.id.item1, android.view.View.GONE);
+        v.setViewVisibility(R.id.item2, android.view.View.GONE);
+        v.setViewVisibility(R.id.item3, android.view.View.GONE);
+        v.setViewVisibility(R.id.item4, android.view.View.GONE);
+        v.setViewVisibility(R.id.more_items, android.view.View.GONE);
         v.setOnClickPendingIntent(R.id.widget_root, WidgetHelper.openUrl(context, WidgetHelper.URL_DAILY, 13));
         mgr.updateAppWidget(widgetId, v);
     }

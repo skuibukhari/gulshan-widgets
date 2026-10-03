@@ -25,8 +25,11 @@ public class AdminSupplyWidget extends AppWidgetProvider {
     static void updateOne(Context context, AppWidgetManager mgr, int widgetId) {
         RemoteViews v = new RemoteViews(context.getPackageName(), R.layout.widget_admin_supply);
         v.setTextViewText(R.id.title, "🚚 سپلائی / گاڑی");
-        v.setTextViewText(R.id.line2, "آج: " + WidgetHelper.todayKhi());
-        v.setTextViewText(R.id.line3, "کٹ آف: رات 8 بجے");
+        v.setTextViewText(R.id.big_count, "0/0");
+        v.setTextViewText(R.id.subtitle, "گاڑیوں کی سپلائی مکمل");
+        v.setTextViewText(R.id.countdown, "⏳ " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
+        v.setProgressBar(R.id.progress, 100, 0, false);
+        v.setTextViewText(R.id.footer, "آج: " + WidgetHelper.todayKhi());
         v.setOnClickPendingIntent(R.id.widget_root, WidgetHelper.openUrl(context, WidgetHelper.URL_SUPPLY, 12));
         mgr.updateAppWidget(widgetId, v);
     }

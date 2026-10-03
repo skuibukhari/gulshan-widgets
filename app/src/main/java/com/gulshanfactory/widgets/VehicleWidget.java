@@ -25,8 +25,11 @@ public class VehicleWidget extends AppWidgetProvider {
     static void updateOne(Context context, AppWidgetManager mgr, int widgetId) {
         RemoteViews v = new RemoteViews(context.getPackageName(), R.layout.widget_vehicle);
         v.setTextViewText(R.id.title, "🚚 میری ڈیوٹی");
-        v.setTextViewText(R.id.line2, "آج: " + WidgetHelper.todayKhi());
-        v.setTextViewText(R.id.line3, "کٹ آف تک: " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
+        v.setTextViewText(R.id.delivered, "✅ 0");
+        v.setTextViewText(R.id.pending, "⏳ 0");
+        v.setTextViewText(R.id.subtitle, "دکانیں");
+        v.setProgressBar(R.id.progress, 100, 0, false);
+        v.setTextViewText(R.id.countdown, "⏳ " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
         v.setOnClickPendingIntent(R.id.widget_root, WidgetHelper.openUrl(context, WidgetHelper.APP_URL, 16));
         mgr.updateAppWidget(widgetId, v);
     }

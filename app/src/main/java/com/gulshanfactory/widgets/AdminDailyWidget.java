@@ -25,8 +25,11 @@ public class AdminDailyWidget extends AppWidgetProvider {
     static void updateOne(Context context, AppWidgetManager mgr, int widgetId) {
         RemoteViews v = new RemoteViews(context.getPackageName(), R.layout.widget_admin_daily);
         v.setTextViewText(R.id.title, "📊 روزانہ آرڈر");
-        v.setTextViewText(R.id.line2, "پیداوار: " + WidgetHelper.productionDate());
-        v.setTextViewText(R.id.line3, "کٹ آف تک: " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
+        v.setTextViewText(R.id.big_count, "0/0");
+        v.setTextViewText(R.id.subtitle, "دکانوں کا آرڈر آ گیا");
+        v.setTextViewText(R.id.countdown, "⏳ " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
+        v.setProgressBar(R.id.progress, 100, 0, false);
+        v.setTextViewText(R.id.footer, "پیداوار: " + WidgetHelper.productionDate());
         v.setOnClickPendingIntent(R.id.widget_root, WidgetHelper.openUrl(context, WidgetHelper.URL_DAILY, 11));
         mgr.updateAppWidget(widgetId, v);
     }

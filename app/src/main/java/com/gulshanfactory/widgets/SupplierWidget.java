@@ -24,9 +24,11 @@ public class SupplierWidget extends AppWidgetProvider {
 
     static void updateOne(Context context, AppWidgetManager mgr, int widgetId) {
         RemoteViews v = new RemoteViews(context.getPackageName(), R.layout.widget_supplier);
-        v.setTextViewText(R.id.title, "📦 میری دکانیں");
-        v.setTextViewText(R.id.line2, "آج: " + WidgetHelper.todayKhi());
-        v.setTextViewText(R.id.line3, "آرڈر دیکھنے کے لیے کھولیں");
+        v.setTextViewText(R.id.title, "🏭 سپلائر");
+        v.setTextViewText(R.id.big_count, "0/0");
+        v.setTextViewText(R.id.subtitle, "میری دکانوں کا آرڈر");
+        v.setTextViewText(R.id.countdown, "⏳ " + WidgetHelper.formatCountdown(WidgetHelper.millisToCutoff()));
+        v.setProgressBar(R.id.progress, 100, 0, false);
         v.setOnClickPendingIntent(R.id.widget_root, WidgetHelper.openUrl(context, WidgetHelper.APP_URL, 17));
         mgr.updateAppWidget(widgetId, v);
     }

@@ -1,38 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- RemoteViews-safe layout: LinearLayout + TextView only. -->
+<!-- Premium Supplier widget: assigned shops status -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widget_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="12dp"
-    android:background="@drawable/widget_bg">
+    android:padding="16dp"
+    android:background="@drawable/widget_bg_supplier">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="گلشن فیکٹری"
+        android:text="🏭 سپلائر"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/line2"
+        android:id="@+id/big_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text=""
+        android:text="0/0"
         android:textColor="#FFFFFF"
-        android:textSize="14sp" />
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/line3"
+        android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text=""
-        android:textColor="#FFE0B2"
-        android:textSize="12sp" />
+        android:text="میری دکانوں کا آرڈر"
+        android:textColor="#E1BEE7"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="⏳ --"
+        android:textColor="#CE93D8"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="10dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/widget_progress_bg" />
 </LinearLayout>
